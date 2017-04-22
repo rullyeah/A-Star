@@ -1,12 +1,12 @@
 {
     "autoload": {
         "psr-4": {
-            "A-Star\\": "src/"
+            "AStar\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "A-Star\\Test\\": "tests"
+            "AStar\\Test\\": "tests"
         }
     },
     "require": {},
