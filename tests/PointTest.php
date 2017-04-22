@@ -31,8 +31,37 @@ class PointTest extends TestCase
     public function invalidCoordsProvider()
     {
         return [
-            'Nada'  => [null, null],
+            'Nothing'  => [null, null],
             'string' => ['asd', 'asd']
+        ];
+    }
+
+    /**
+     * @dataProvider validCoordsProvider
+     */
+    public function testGetX($x, $y, $expectedX, $expectedY)
+    {
+        $bean = new Point($x,$y);
+        $this->assertEquals($expectedX, $bean->x());
+    }
+
+    /**
+     * @dataProvider validCoordsProvider
+     */
+    public function testGetY($x, $y, $expectedX, $expectedY)
+    {
+        $bean = new Point($x,$y);
+        $this->assertEquals($expectedY, $bean->y());
+    }
+
+        public function validCoordsProvider()
+    {
+        return [
+            'root'  => [0, 0, 0, 0],
+            'string numbers' => ['3', '5', 3, 5],
+            'negative numbers' => [-3, -1, -3, -1],
+            'float numbers' => [2.5, 3.111, 2, 3],
+            'mix numbers' => ['3.18', '-5', 3, -5]
         ];
     }
 }
