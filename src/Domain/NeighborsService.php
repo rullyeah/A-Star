@@ -25,7 +25,7 @@ class NeighborsService
         return $this->diagonalCost;
     }
 
-    public function execute(Point $point)
+    public function allNeighbors(Point $point)
     {
         return [
             'ortogonalNeighbors' => $this->ortogonalNeighbors($point),

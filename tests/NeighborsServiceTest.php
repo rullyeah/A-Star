@@ -65,7 +65,7 @@ class NeighborsServiceTest extends TestCase
     public function test()
     {
         $point = new Point(0,0);
-        $neighborsPoint = $this->neighborsService->execute($point);
+        $neighborsPoint = $this->neighborsService->allNeighbors($point);
         $this->assertEquals(
             10, $neighborsPoint['ortogonalNeighbors']['west']['cost']
         );

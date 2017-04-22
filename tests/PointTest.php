@@ -76,5 +76,11 @@ class PointTest extends TestCase
             'other' => [new Point(3,-1), new Point(3,-1)],
         ];
     }
+
+    public function testToString()
+    {
+        $point = new Point(0,0);
+        $this->assertEquals('0:0',$point->toString());
+    }
 }
 ?>
