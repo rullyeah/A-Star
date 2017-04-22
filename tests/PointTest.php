@@ -6,13 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 class PointTest extends TestCase
 {
-    protected $point;
-
-    public function setUp()
-    {
-        $this->point = new Point(0,0);
-    }
-
     public function testNew()
     {
         $bean = new Point(0,0);
@@ -54,7 +47,7 @@ class PointTest extends TestCase
         $this->assertEquals($expectedY, $bean->y());
     }
 
-        public function validCoordsProvider()
+    public function validCoordsProvider()
     {
         return [
             'root'  => [0, 0, 0, 0],
@@ -62,6 +55,25 @@ class PointTest extends TestCase
             'negative numbers' => [-3, -1, -3, -1],
             'float numbers' => [2.5, 3.111, 2, 3],
             'mix numbers' => ['3.18', '-5', 3, -5]
+        ];
+    }
+
+    /**
+     * @dataProvider samePoints
+     */
+    public function testEquals($startPoint, $endPoint)
+    {
+        $this->assertTrue($startPoint->equals($endPoint));
+    }
+
+    public function samePoints()
+    {   
+        $point = new Point(0,0);
+        return [
+            'same' => [$point, $point],
+            'zero' => [$point, new Point(0,0)],
+            'commutative' => [new Point(0,0), $point],
+            'other' => [new Point(3,-1), new Point(3,-1)],
         ];
     }
 }

@@ -13,14 +13,19 @@ class Point
         $this->y = $y;
     }
 
-    public function x()
+    public function x(): int
     {
         return $this->x;
     }
 
-    public function y()
+    public function y(): int
     {
         return $this->y;
+    }
+
+    public function equals(Point $point): bool
+    {
+        return $this->x == $point->x() && $this->y == $point->y();
     }
 }
 
