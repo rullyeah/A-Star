@@ -27,6 +27,11 @@ class Point
     {
         return $this->x == $point->x() && $this->y == $point->y();
     }
+
+    public function toString(): string
+    {
+        return $this->x.':'.$this->y;
+    }
 }
 
 ?>
