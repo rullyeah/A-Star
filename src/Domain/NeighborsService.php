@@ -36,10 +36,10 @@ class NeighborsService
     public function ortogonalNeighbors(Point $point)
     {
         return [
-            'west' => $this->westPoint($point),
-            'east' => $this->eastPoint($point),
-            'north' => $this->northPoint($point),
-            'south' => $this->southPoint($point)
+            'west' => $this->west($point),
+            'east' => $this->east($point),
+            'north' => $this->north($point),
+            'south' => $this->south($point)
         ];
     }
 
@@ -53,14 +53,14 @@ class NeighborsService
         ];
     }
 
-    public function westPoint(Point $point)
+    public function west(Point $point)
     {
         return [
             'point' => new Point($point->x()-1, $point->y()),
             'cost' => $this->ortogonalCost()
         ];
     }
-    public function eastPoint(Point $point)
+    public function east(Point $point)
     {
         return [
             'point' => new Point($point->x()+1, $point->y()),
@@ -68,7 +68,7 @@ class NeighborsService
         ];
     }
 
-    public function northPoint(Point $point)
+    public function north(Point $point)
     {
         return [
             'point' => new Point($point->x(), $point->y()+1),
@@ -76,7 +76,7 @@ class NeighborsService
         ];
     }
 
-    public function southPoint(Point $point)
+    public function south(Point $point)
     {
         return [
             'point' => new Point($point->x(), $point->y()-1),

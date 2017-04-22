@@ -33,7 +33,7 @@ class NeighborsServiceTest extends TestCase
     public function testWestPoint()
     {
         $point = new Point(0,0);
-        $neighborPoint = $this->neighborsService->westPoint($point);
+        $neighborPoint = $this->neighborsService->west($point);
         $this->assertEquals(10, $neighborPoint['cost']);
         $this->assertTrue($neighborPoint['point']->equals(new Point(-1,0)));
     }
@@ -41,7 +41,7 @@ class NeighborsServiceTest extends TestCase
     public function testEastPoint()
     {
         $point = new Point(0,0);
-        $neighborPoint = $this->neighborsService->eastPoint($point);
+        $neighborPoint = $this->neighborsService->east($point);
         $this->assertEquals(10, $neighborPoint['cost']);
         $this->assertTrue($neighborPoint['point']->equals(new Point(1,0)));
     }
@@ -49,7 +49,7 @@ class NeighborsServiceTest extends TestCase
     public function testNorthPoint()
     {
         $point = new Point(0,0);
-        $neighborPoint = $this->neighborsService->northPoint($point);
+        $neighborPoint = $this->neighborsService->north($point);
         $this->assertEquals(10, $neighborPoint['cost']);
         $this->assertTrue($neighborPoint['point']->equals(new Point(0,1)));
     }
@@ -57,7 +57,7 @@ class NeighborsServiceTest extends TestCase
     public function testSouthPoint()
     {
         $point = new Point(0,0);
-        $neighborPoint = $this->neighborsService->southPoint($point);
+        $neighborPoint = $this->neighborsService->south($point);
         $this->assertEquals(10, $neighborPoint['cost']);
         $this->assertTrue($neighborPoint['point']->equals(new Point(0,-1)));
     }
