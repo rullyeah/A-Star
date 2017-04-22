@@ -1,0 +1,16 @@
+{
+    "autoload": {
+        "psr-4": {
+            "A-Star\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "A-Star\\Test\\": "tests"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"   
+    }
+}

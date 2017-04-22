@@ -1,0 +1,29 @@
+version: '2'
+services:
+  php: 
+    image: rullyeah/php4suitecrm
+    ports:
+      - "3080:80"
+    links:
+      - mysql
+    volumes_from:
+      - app
+  app: 
+    image: rullyeah/php4suitecrm
+    volumes:
+      - ".:/var/www/html"
+    command: "true"
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    volumes_from:
+      - data
+    env_file:
+      - .env
+  data:
+      image: mysql:latest
+      volumes:
+          - /var/lib/mysql
+      command: "true"
